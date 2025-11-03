@@ -1,0 +1,22 @@
+#for vmwaretools upgradation
+
+VMware_tools_folder:
+  file.directory:
+    - name: 'C:\VMware_tools'
+    
+
+vmware_tools_file:
+  file.managed:
+    - name: 'C:\VMware_tools\vmware_tools.exe'
+    - source: salt://vmware_tools.exe
+    -  require:
+      - file: VMware_tools_folder
+
+vmwaretools_run:
+  cmd.run:
+    - name: 'Start-Process "C:\Vmware_tools\vmwaretools.exe"'
+    - cwd: 'C\VMware_tools
+    - runas: Administrator
+    - require:
+      - file: VMware_tools_folder
+      - file: VMware_tools_file
