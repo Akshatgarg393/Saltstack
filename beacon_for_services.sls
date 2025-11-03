@@ -40,7 +40,7 @@ location
 /etc/salt/master
 
 reactor:
-  - '/salt/beacon/*/service/':
+  - '/salt/beacons/*/service/':
     - srv/reactor/service_change_react.sls
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -102,10 +102,10 @@ location
 /etc/salt/master
 
 reactor:
-  - '/salt/beacon/*/service/sshd':
+  - '/salt/beacons/*/service/sshd':
     -  /srv/reactor/sshd_stopped.sls
 
-  - '/salt/beacon/*/service/firewalld':
+  - '/salt/beacons/*/service/firewalld':
     -  /srv/reactor/firewalld_started.sls
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -158,3 +158,4 @@ firewall_stop:
 
 
   
+
